@@ -1,0 +1,31 @@
+{
+    "comments": {
+        // Symbol used for single line comment. Remove this entry if your language does not support line comments
+        "lineComment": "%",
+        // Symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+        "blockComment": [ "%{", "%}" ]
+    },
+    // Symbols used as brackets
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    // Symbols that are auto closed when typing
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    // Symbols that can be used to surround a selection
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"],
+        ["%{", "%}"]
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "lilypond-syntax",
+    "displayName": "LilyPond Syntax",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lilypond",
+            "aliases": ["LilyPond", "lilypond"],
+            "extensions": [".ly",".ily"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lilypond",
+            "scopeName": "source.lilypond",
+            "path": "./syntaxes/lilypond.tmLanguage.json"
+        }]
+    }
+}
