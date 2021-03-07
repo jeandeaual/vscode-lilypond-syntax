@@ -18,6 +18,14 @@ LilyPond syntax highlighting for VSCode.
 2. Type in `LilyPond Syntax` in the search bar
 3. Install the extension, then reload VSCode (Ctrl+R)
 
+## Build
+
+```sh
+yarn install
+npx js-yaml syntaxes/lilypond.tmLanguage.yaml > syntaxes/lilypond.tmLanguage.json
+npx vsce package
+```
+
 ## Release Notes
 
 See [here](CHANGELOG.md).

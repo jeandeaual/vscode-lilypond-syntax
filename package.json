@@ -2,9 +2,10 @@
     "name": "lilypond-syntax",
     "displayName": "LilyPond Syntax",
     "publisher": "jeandeaual",
+    "repository": "https://github.com/jeandeaual/vscode-lilypond-syntax",
     "description": "",
     "version": "0.1.0",
-    "license": "CC BY-NC 3.0",
+    "license": "CC-BY-NC-3.0",
     "author": {
         "name": "Alexis Jeandeau"
     },
@@ -26,8 +27,14 @@
         "languages": [
             {
                 "id": "lilypond",
-                "aliases": ["LilyPond", "lilypond"],
-                "extensions": [".ly",".ily"],
+                "aliases": [
+                    "LilyPond",
+                    "lilypond"
+                ],
+                "extensions": [
+                    ".ly",
+                    ".ily"
+                ],
                 "configuration": "./language-configuration.json"
             }
         ],
@@ -38,5 +45,9 @@
                 "path": "./syntaxes/lilypond.tmLanguage.json"
             }
         ]
+    },
+    "devDependencies": {
+        "js-yaml": "^4.0.0",
+        "vsce": "^1.85.1"
     }
 }

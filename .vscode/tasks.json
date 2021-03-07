@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Package",
+            "type": "shell",
+            "command": "npx vsce package",
+            "dependsOn": "YAML to JSON",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Release",
+            "type": "shell",
+            "command": "npx vsce publish",
+            "dependsOn": "Package",
+            "group": "build",
+        },
+        {
+            "label": "YAML to JSON",
+            "type": "shell",
+            "command": "npx js-yaml ${workspaceFolder}/syntaxes/lilypond.tmLanguage.yaml > ${workspaceFolder}/syntaxes/lilypond.tmLanguage.json",
+            "group": "build"
+        },
+        {
+            "label": "JSON to YAML",
+            "type": "shell",
+            "command": "yq e -P ${workspaceFolder}/syntaxes/lilypond.tmLanguage.json > ${workspaceFolder}/syntaxes/lilypond.tmLanguage.yaml",
+            "group": "build"
+        }
+    ]
+}

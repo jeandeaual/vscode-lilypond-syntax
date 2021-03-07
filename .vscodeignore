@@ -1,4 +1,5 @@
+.devcontainer/**
 .vscode/**
 .vscode-test/**
 .gitignore
-vsc-extension-quickstart.md
+syntaxes/*.yaml
