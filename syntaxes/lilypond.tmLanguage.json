@@ -32,7 +32,7 @@
             "include": "#figbassmode"
         },
         {
-            "include": "#schememode"
+            "include": "#lilypond-scheme"
         }
     ],
     "repository": {
@@ -136,7 +136,7 @@
                     "include": "#figbassmode"
                 },
                 {
-                    "include": "#schememode"
+                    "include": "#lilypond-scheme"
                 }
             ]
         },
@@ -191,7 +191,7 @@
                             "include": "#figbassmode"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 },
@@ -235,7 +235,7 @@
                             "include": "#figbassmode"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 }
@@ -310,7 +310,7 @@
                             "include": "#markupmode"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 },
@@ -348,7 +348,7 @@
                             "include": "#markupmode"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 }
@@ -402,7 +402,7 @@
                             "include": "#figbassmode"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 }
@@ -436,7 +436,7 @@
                             "include": "$self"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 },
@@ -474,7 +474,7 @@
                             "include": "$self"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 },
@@ -503,7 +503,7 @@
                             "include": "$self"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
                         }
                     ]
                 }
@@ -557,7 +557,41 @@
                             "include": "#figuregroup"
                         },
                         {
-                            "include": "#schememode"
+                            "include": "#lilypond-scheme"
+                        }
+                    ]
+                }
+            ]
+        },
+        "lilypond-scheme":{
+            "patterns": [
+                {
+                    "name": "meta.lilypond.scheme",
+                    "begin": "\\$(`|')?\\(",
+                    "end": "\\)",
+                    "patterns": [
+                        {
+                            "include": "source.scheme"
+                        }
+                    ]
+                },
+                {
+                    "name": "meta.lilypond.scheme",
+                    "begin": "#(`|')?\\(",
+                    "end": "\\)",
+                    "patterns": [
+                        {
+                            "include": "source.scheme"
+                        }
+                    ]
+                },
+                {
+                    "begin": "#",
+                    "end": "\\s",
+                    "name": "meta.lilypond.scheme",
+                    "patterns": [
+                        {
+                            "include": "source.scheme"
                         }
                     ]
                 }
@@ -598,7 +632,7 @@
                     ]
                 },
                 {
-                    "include": "#schememode"
+                    "include": "#lilypond-scheme"
                 }
             ]
         },

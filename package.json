@@ -1,25 +1,42 @@
 {
     "name": "lilypond-syntax",
     "displayName": "LilyPond Syntax",
+    "publisher": "jeandeaual",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.1.0",
+    "license": "CC BY-NC 3.0",
+    "author": {
+        "name": "Alexis Jeandeau"
+    },
     "engines": {
         "vscode": "^1.44.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "keywords": [
+        "lilypond",
+        "syntax",
+        "music"
+    ],
+    "extensionDependencies": [
+        "sjhuangx.vscode-scheme"
+    ],
     "contributes": {
-        "languages": [{
-            "id": "lilypond",
-            "aliases": ["LilyPond", "lilypond"],
-            "extensions": [".ly",".ily"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "lilypond",
-            "scopeName": "source.lilypond",
-            "path": "./syntaxes/lilypond.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "lilypond",
+                "aliases": ["LilyPond", "lilypond"],
+                "extensions": [".ly",".ily"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lilypond",
+                "scopeName": "source.lilypond",
+                "path": "./syntaxes/lilypond.tmLanguage.json"
+            }
+        ]
     }
 }
