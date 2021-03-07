@@ -7,7 +7,10 @@
             "label": "Package",
             "type": "shell",
             "command": "npx vsce package",
-            "dependsOn": "YAML to JSON",
+            "dependsOn": [
+                "YAML to JSON (LilyPond syntax)",
+                "YAML to JSON (LilyPond Markdown syntax)"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -22,14 +25,42 @@
         },
         {
             "label": "YAML to JSON",
+            "dependsOn": [
+                "YAML to JSON (LilyPond syntax)",
+                "YAML to JSON (LilyPond Markdown syntax)"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "JSON to YAML",
+            "dependsOn": [
+                "JSON to YAML (LilyPond syntax)",
+                "JSON to YAML (LilyPond Markdown syntax)"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "YAML to JSON (LilyPond syntax)",
             "type": "shell",
             "command": "npx js-yaml ${workspaceFolder}/syntaxes/lilypond.tmLanguage.yaml > ${workspaceFolder}/syntaxes/lilypond.tmLanguage.json",
             "group": "build"
         },
         {
-            "label": "JSON to YAML",
+            "label": "JSON to YAML (LilyPond syntax)",
             "type": "shell",
             "command": "yq e -P ${workspaceFolder}/syntaxes/lilypond.tmLanguage.json > ${workspaceFolder}/syntaxes/lilypond.tmLanguage.yaml",
+            "group": "build"
+        },
+        {
+            "label": "YAML to JSON (LilyPond Markdown syntax)",
+            "type": "shell",
+            "command": "npx js-yaml ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.yaml > ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.json",
+            "group": "build"
+        },
+        {
+            "label": "JSON to YAML (LilyPond Markdown syntax)",
+            "type": "shell",
+            "command": "yq e -P ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.json > ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.yaml",
             "group": "build"
         }
     ]

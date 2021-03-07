@@ -43,6 +43,13 @@
                 "language": "lilypond",
                 "scopeName": "source.lilypond",
                 "path": "./syntaxes/lilypond.tmLanguage.json"
+            },
+            {
+                "scopeName": "markdown.lilypond.codeblock",
+                "path": "./syntaxes/lilypond.markdown.tmLanguage.json",
+                "injectTo": [
+                    "text.html.markdown"
+                ]
             }
         ]
     },

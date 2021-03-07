@@ -6,6 +6,7 @@ LilyPond syntax highlighting for VSCode.
 
 * LilyPond syntax highlighting
     * Including new syntax introduced in [LilyPond 2.20](https://lilypond.org/doc/v2.20/Documentation/changes-big-page.html)
+    * Also works in [Markdown code blocks](https://docs.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)
 * [Scheme](https://lilypond.org/doc/stable/Documentation/extending/scheme-tutorial) syntax highlighting
 
 ## Requirements
@@ -23,6 +24,7 @@ LilyPond syntax highlighting for VSCode.
 ```sh
 yarn install
 npx js-yaml syntaxes/lilypond.tmLanguage.yaml > syntaxes/lilypond.tmLanguage.json
+npx js-yaml syntaxes/lilypond.markdown.tmLanguage.yaml > syntaxes/lilypond.markdown.tmLanguage.json
 npx vsce package
 ```
 
