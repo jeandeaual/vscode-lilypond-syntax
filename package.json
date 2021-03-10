@@ -3,7 +3,8 @@
     "displayName": "LilyPond Syntax",
     "publisher": "jeandeaual",
     "repository": "https://github.com/jeandeaual/vscode-lilypond-syntax",
-    "description": "",
+    "icon": "assets/icon.png",
+    "description": "Adds support for LilyPond syntax highlighting (including embedded Scheme).",
     "version": "0.1.0",
     "license": "CC-BY-NC-3.0",
     "author": {
