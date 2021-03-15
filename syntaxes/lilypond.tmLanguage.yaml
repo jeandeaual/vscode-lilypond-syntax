@@ -13,7 +13,7 @@ patterns:
   - include: '#notemode-explicit'
   - include: '#markupmode'
   - include: '#figbassmode'
-  - include: '#lilypond-scheme'
+  - include: '#embedded-scheme'
 repository:
   notenames:
     patterns:
@@ -1080,7 +1080,7 @@ repository:
       - include: '#notemode-explicit'
       - include: '#markupmode'
       - include: '#figbassmode'
-      - include: '#lilypond-scheme'
+      - include: '#embedded-scheme'
   drummode:
     patterns:
       - name: meta.lilypond.drummode
@@ -1107,7 +1107,7 @@ repository:
           - include: '#lyricsmode'
           - include: '#markupmode'
           - include: '#figbassmode'
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
       - name: meta.lilypond.drummode
         begin: ({)
         end: (})
@@ -1126,7 +1126,7 @@ repository:
           - include: '#notemode-explicit'
           - include: '#markupmode'
           - include: '#figbassmode'
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
   lyricsmode:
     patterns:
       - name: meta.lilypond.lyricsmode
@@ -1167,7 +1167,7 @@ repository:
           - include: '#internals'
           - include: $self
           - include: '#markupmode'
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
       - name: meta.lilypond.lyricsmode.nested
         begin: ({)
         end: (})
@@ -1184,7 +1184,7 @@ repository:
           - include: '#internals'
           - include: $self
           - include: '#markupmode'
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
   notemode-explicit:
     patterns:
       - name: meta.lilypond-notemode-explicit
@@ -1209,7 +1209,7 @@ repository:
           - include: '#notemode-explicit'
           - include: '#markupmode'
           - include: '#figbassmode'
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
   markupmode:
     patterns:
       - name: meta.lilypond.markupmode.singleword
@@ -1226,7 +1226,7 @@ repository:
           - include: '#internals'
           - include: '#notemode-explicit'
           - include: $self
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
       - name: meta.lilypond.markupmode
         begin: ([-_^](\s*))?(((\\markup\s*)({))|((\\markuplist\s*)({)))
         end: (})
@@ -1246,7 +1246,7 @@ repository:
           - include: '#internals'
           - include: '#notemode-explicit'
           - include: $self
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
       - name: meta.lilypond.markupmode.nested
         begin: ({)
         end: (})
@@ -1260,7 +1260,7 @@ repository:
           - include: '#internals'
           - include: '#notemode-explicit'
           - include: $self
-          - include: '#lilypond-scheme'
+          - include: '#embedded-scheme'
   figbassmode:
     patterns:
       - name: meta.lilypond.figbassmode
@@ -1288,24 +1288,58 @@ repository:
           - include: '#notemode-explicit'
           - include: '#markupmode'
           - include: '#figuregroup'
-          - include: '#lilypond-scheme'
-  lilypond-scheme:
+          - include: '#embedded-scheme'
+  embedded-scheme:
     patterns:
       - name: meta.lilypond.scheme
         begin: \$(`|')?\(
         end: \)
         patterns:
-          - include: source.scheme
+          - include: '#lilypond-scheme'
       - name: meta.lilypond.scheme
         begin: '#(`|'')?\('
         end: \)
         patterns:
-          - include: source.scheme
+          - include: '#lilypond-scheme'
       - begin: '#'
         end: \s
         name: meta.lilypond.scheme
         patterns:
-          - include: source.scheme
+          - include: '#lilypond-scheme'
+      - begin: '\$'
+        end: \s
+        name: meta.lilypond.scheme
+        patterns:
+          - include: '#lilypond-scheme'
+  lilypond-scheme:
+    patterns:
+      - match: "\
+          (\
+            define-scheme-function|\
+            define-music-function|\
+            define-event-function|\
+            define-markup-command|\
+            define-markup-list-command\
+          )\
+        "
+        name: entity.name.function.keyword.lilypond-scheme
+        content: LilyPond Scheme functions
+      # https://lilypond.org/doc/v2.20/Documentation/extending/lilypond-code-blocks
+      - begin: '#{'
+        end: '#}'
+        name: meta.lilypond-scheme.lilypond-code-block
+        content: LilyPond code block
+        patterns:
+          - include: '#notenames'
+          - include: '#internals'
+          - include: '#notemode'
+          - include: '#drummode'
+          - include: '#lyricsmode'
+          - include: '#notemode-explicit'
+          - include: '#markupmode'
+          - include: '#figbassmode'
+          - include: '#embedded-scheme'
+      - include: source.scheme
   figuregroup:
     patterns:
       - name: meta.lilypond.figuregroup
@@ -1324,7 +1358,7 @@ repository:
           - include: '#group'
           - include: '#figure'
           - include: '#accidental'
-      - include: '#lilypond-scheme'
+      - include: '#embedded-scheme'
   notedrum:
     patterns:
       - match: <(?!<)|(?<!\\)>(?!>)(\s*(128|64|32|16|8|4|2|1|\\breve|\\longa|\\maxima)(\s*[.]\s*)*((\s*\*\s*\d+(\/\d+)?)+)?)?
