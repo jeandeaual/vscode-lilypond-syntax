@@ -33,11 +33,11 @@ repository:
                   g(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
                   f(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
                   (?<!#)f|\
-                  e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                  d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                  c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                  b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                  a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)\
+                  e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                  d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                  c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                  b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                  a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?\
                 )\
                 (\
                   \\s*[=]?\\s*(([,]\\s*)|([']\\s*)){0,4}\\s*[?!]?\
@@ -73,11 +73,11 @@ repository:
                 g(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
                 f(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
                 (?<!#)f|\
-                e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-                a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)\
+                e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+                a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?\
               )\
             )?\
           )\
@@ -94,11 +94,11 @@ repository:
               g(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
               f(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
               (?<!#)f|\
-              e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-              d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-              c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-              b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)|\
-              a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)\
+              e(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+              d(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+              c(eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+              b(b|eh|es|eseh|eses|ess|essess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?|\
+              a(eh|es|eseh|eses|ess|essess|seh|ses|ssess|ih|is|isih|isis|iss|ississ|f|ff|flat|flatflat|s|ss|sharp|sharpsharp|qf|qs|tqf|tqs|x)?\
             )\
           )"
         name: keyword.notechord.lilypond
