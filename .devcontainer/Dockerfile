@@ -4,5 +4,9 @@
 ARG VARIANT="14-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 
+# Install additional global node packages
+# https://code.visualstudio.com/api/get-started/your-first-extension
+RUN su node -c "npm install -g yo generator-code"
+
 # Install the yq command (to convert from JSON to YAML)
 COPY --from=mikefarah/yq:4 /usr/bin/yq /usr/bin/yq
