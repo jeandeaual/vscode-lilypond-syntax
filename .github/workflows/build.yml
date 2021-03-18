@@ -9,6 +9,8 @@ on:
       - '**.md'
       - '.vscode/*'
   push:
+    tags:
+      - 'v*'
     branches:
       - master
     paths-ignore:
@@ -32,13 +34,75 @@ jobs:
         run: yarn install
       - name: Build the extension
         run: npx vsce package
-      - name: Prepare the artifact
-        run: mkdir build && mv *.vsix build/
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
+      - name: Get the package info
+        id: packageInfo
+        run: |
+          echo "::set-output name=name::$(jq -r '.name' package.json)"
+          echo "::set-output name=version::$(jq -r '.version' package.json)"
+      - name: Prepare the artifact
+        run: mkdir build && mv "${PACKAGE_FILE}" build/
+        env:
+          PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
       - name: Upload the built extension
         uses: actions/upload-artifact@v1.0.0
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
+  release:
+    # Only release when pushing a tag
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Get short SHA
+        id: slug
+        run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
+      - name: Get the package info
+        id: packageInfo
+        run: |
+          echo "::set-output name=name::$(jq -r '.name' package.json)"
+          echo "::set-output name=version::$(jq -r '.version' package.json)"
+      - name: Download the build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
+          path: build
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "v-(?<version>.*)"
+      - name: Get the changelog
+        run: |
+          yarn add markdown-extract@1.0.2
+          cat CHANGELOG.md | npx md-extract '\['"${VERSION}"'\]' > release-body.md
+        env:
+          VERSION: ${{ steps.tagName.outputs.version }}
+      - name: Create a new release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          artifacts: build/${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
+          bodyFile: release-body.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish the extension to the Visual Studio Code Marketplace
+        run: npx vsce publish "build/${PACKAGE_FILE}"
+        env:
+          VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}
+          PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
+      - name: Publish the extension to the Visual Studio Code Marketplace
+        run: npx ovsx publish "build/${PACKAGE_FILE}"
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_REGISTRY_PAT }}
+          PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
