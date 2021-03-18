@@ -1324,6 +1324,10 @@ repository:
         "
         name: entity.name.function.keyword.lilypond-scheme
         content: LilyPond Scheme functions
+      - begin: '#!'
+        end: '!#'
+        name: comment.block.lilypond-scheme
+        content: Guile block comment
       # https://lilypond.org/doc/v2.20/Documentation/extending/lilypond-code-blocks
       - begin: '#{'
         end: '#}'
