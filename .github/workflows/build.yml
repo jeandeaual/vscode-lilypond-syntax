@@ -1,0 +1,44 @@
+name: build
+on:
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - 'LICENSE'
+      - '.gitignore'
+      - '**.md'
+      - '.vscode/*'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'LICENSE'
+      - '.gitignore'
+      - '**.md'
+      - '.vscode/*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install the dependencies
+        run: yarn install
+      - name: Build the extension
+        run: npx vsce package
+      - name: Prepare the artifact
+        run: mkdir build && mv *.vsix build/
+      - name: Get short SHA
+        id: slug
+        run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
+      - name: Upload the built extension
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
+          path: build

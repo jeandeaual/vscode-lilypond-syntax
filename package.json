@@ -57,5 +57,10 @@
     "devDependencies": {
         "js-yaml": "^4.0.0",
         "vsce": "^1.85.1"
+    },
+    "scripts": {
+        "vscode:prepublish": "yarn convertMainSyntax && yarn convertMarkdownSyntax",
+        "convertMainSyntax": "npx js-yaml syntaxes/lilypond.tmLanguage.yaml > syntaxes/lilypond.tmLanguage.json",
+        "convertMarkdownSyntax": "npx js-yaml syntaxes/lilypond.markdown.tmLanguage.yaml > syntaxes/lilypond.markdown.tmLanguage.json"
     }
 }

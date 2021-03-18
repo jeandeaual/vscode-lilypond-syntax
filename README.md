@@ -1,5 +1,7 @@
 # VSCode LilyPond Syntax
 
+[![build](https://github.com/jeandeaual/vscode-lilypond-syntax/workflows/build/badge.svg)](https://github.com/jeandeaual/vscode-lilypond-syntax/actions?query=workflow%3Abuild)
+
 LilyPond syntax highlighting for VSCode.
 
 ## Features
@@ -23,8 +25,6 @@ LilyPond syntax highlighting for VSCode.
 
 ```sh
 yarn install
-npx js-yaml syntaxes/lilypond.tmLanguage.yaml > syntaxes/lilypond.tmLanguage.json
-npx js-yaml syntaxes/lilypond.markdown.tmLanguage.yaml > syntaxes/lilypond.markdown.tmLanguage.json
 npx vsce package
 ```
 
