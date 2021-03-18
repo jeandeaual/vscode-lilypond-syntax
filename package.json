@@ -55,12 +55,21 @@
         ]
     },
     "devDependencies": {
+        "@types/node": "^14.14.35",
+        "@types/xmldom": "^0.1.30",
+        "axios": "^0.21.1",
         "js-yaml": "^4.0.0",
-        "vsce": "^1.85.1"
+        "ovsx": "^0.1.0-next.a9154dc",
+        "ts-node": "^8.9.0",
+        "typescript": "^3.8.3",
+        "vsce": "^1.87.0",
+        "xmldom": "^0.5.0",
+        "xpath": "^0.0.32"
     },
     "scripts": {
         "vscode:prepublish": "yarn convertMainSyntax && yarn convertMarkdownSyntax",
         "convertMainSyntax": "npx js-yaml syntaxes/lilypond.tmLanguage.yaml > syntaxes/lilypond.tmLanguage.json",
-        "convertMarkdownSyntax": "npx js-yaml syntaxes/lilypond.markdown.tmLanguage.yaml > syntaxes/lilypond.markdown.tmLanguage.json"
+        "convertMarkdownSyntax": "npx js-yaml syntaxes/lilypond.markdown.tmLanguage.yaml > syntaxes/lilypond.markdown.tmLanguage.json",
+        "updateDefinitions": "npx ts-node src/main.ts"
     }
 }

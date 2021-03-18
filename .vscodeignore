@@ -1,6 +1,11 @@
+.github/**
 .devcontainer/**
 .vscode/**
 .vscode-test/**
 .gitignore
 *.vsix
 syntaxes/*.yaml
+src/**
+node_modules/**
+tsconfig.json
+yarn.lock
