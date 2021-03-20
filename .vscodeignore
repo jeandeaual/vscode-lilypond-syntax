@@ -4,6 +4,8 @@
 .vscode-test/**
 .gitignore
 *.vsix
+assets/**
+!assets/icon.png
 examples/**
 syntaxes/*.yaml
 src/**
