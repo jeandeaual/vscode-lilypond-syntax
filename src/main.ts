@@ -1,18 +1,20 @@
 import axios, { AxiosResponse } from 'axios';
-import * as fs from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import { DOMParser as dom } from 'xmldom';
-import * as xpath from 'xpath';
+import xpath, { SelectedValue } from 'xpath';
 
-const { readFile, writeFile } = fs.promises;
-
-function parse(htmlData: string, xpathQuery: string): Array<xpath.SelectedValue> {
+function parse(htmlData: string, xpathQuery: string): Array<SelectedValue> {
     const doc = new dom({
         locator: {},
         errorHandler: {
             // Ignore warnings and errors since we're parsing HTML, not XML
-            warning: () => {},
-            error: () => {},
-            fatalError: (e) => { console.error(e); }
+            warning: () => {
+                // Do nothing
+            },
+            error: () => {
+                // Do nothing
+            },
+            fatalError: e => console.error(e)
         }
     }).parseFromString(htmlData);
 
@@ -25,15 +27,12 @@ async function main() {
     const xpathQuery = '//dl/dt/b/text()';
     const startRegex = /define-markup-list-command\|\\/;
     const startRegexLen = 28;
-    const endRegex = /          \)\\/;
-    const toReplace = {
-        '&lt;': '<',
-        '&gt;': '>'
-    }
-    const toEscape = [
-        '?',
-        '|'
-    ]
+    const endRegex = / {10}\)\\/;
+    const toReplace: Array<[RegExp, string]> = [
+        [/&lt;/g, '<'],
+        [/&gt;/g, '>']
+    ];
+    const toEscape = ['?', '|'];
 
     // Fetch the documentation page
     const response: AxiosResponse = await axios.get(url);
@@ -54,29 +53,34 @@ async function main() {
         console.error(`No ${startRegex} found in ${syntaxFile}`);
         process.exit(1);
     }
-    const end = content.substr(start + startRegexLen + 1).search(endRegex)
+
+    const end = content.substr(start + startRegexLen + 1).search(endRegex);
 
     let out = content.substr(0, start + startRegexLen);
 
-    nodes.map(node => node.toString().trim()).forEach((definition, idx, array) => {
-        out += "\n            ";
+    nodes
+        .map(node => node.toString().trim())
+        .forEach((definition, idx, array) => {
+            out += '\n            ';
 
-        for (const [sequence, replace] of Object.entries(toReplace)) {
-            definition = definition.replace(sequence, replace);
-        }
-        for (const char of toEscape) {
-            definition = definition.replace(char, '\\\\' + char);
-        }
+            for (const [sequence, replace] of toReplace) {
+                definition = definition.replace(sequence, replace);
+            }
 
-        out += definition;
+            for (const char of toEscape) {
+                definition = definition.replace(char, `\\\\${char}`);
+            }
 
-        if (idx !== array.length - 1) {
-            out += '|';
-        }
-        out += '\\';
-    })
+            out += definition;
 
-    out += content.substr(start + startRegexLen + end)
+            if (idx !== array.length - 1) {
+                out += '|';
+            }
+
+            out += '\\';
+        });
+
+    out += content.substr(start + startRegexLen + end);
 
     await writeFile(syntaxFile, out);
 }

@@ -1320,7 +1320,6 @@ repository:
             define-event-function|\
             define-markup-command|\
             define-markup-list-command|\
-            string\\?|\
             ly:add-context-mod|\
             ly:add-file-name-alist|\
             ly:add-interface|\
