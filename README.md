@@ -11,6 +11,20 @@ LilyPond syntax highlighting for VSCode.
     * Also works in [Markdown code blocks](https://docs.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)
 * [Scheme](https://lilypond.org/doc/stable/Documentation/extending/scheme-tutorial) syntax highlighting
 
+## Screenshots
+
+### Standard LilyPond notation
+
+![Real music example](https://github.com/jeandeaual/vscode-lilypond-syntax/blob/master/assets/real-music-example.png?raw=true)
+
+### LilyPond Scheme
+
+![LilyPond Scheme](https://github.com/jeandeaual/vscode-lilypond-syntax/blob/master/assets/lilypond-scheme.png?raw=true)
+
+### Markdown code blocks
+
+![Markdown code blocks](https://github.com/jeandeaual/vscode-lilypond-syntax/blob/master/assets/markdown-code-blocks.png?raw=true)
+
 ## Requirements
 
 * [VSCode](https://code.visualstudio.com/) 1.0.0 or newer

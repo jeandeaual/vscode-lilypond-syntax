@@ -4,6 +4,7 @@
 .vscode-test/**
 .gitignore
 *.vsix
+examples/**
 syntaxes/*.yaml
 src/**
 node_modules/**
