@@ -98,7 +98,7 @@ jobs:
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         with:
-          tagRegex: "v-(?<version>.*)"
+          tagRegex: "v(?<version>.*)"
       - name: Get the changelog
         run: |
           yarn add markdown-extract@1.0.2
@@ -114,12 +114,12 @@ jobs:
           bodyFile: release-body.md
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish the extension to the Visual Studio Code Marketplace
-        run: npx vsce publish "build/${PACKAGE_FILE}"
+        run: npx vsce publish --packagePath "build/${PACKAGE_FILE}"
         env:
           VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
       - name: Publish the extension to the Visual Studio Code Marketplace
-        run: npx ovsx publish "build/${PACKAGE_FILE}"
+        run: npx ovsx publish --packagePath "build/${PACKAGE_FILE}"
         env:
           OVSX_PAT: ${{ secrets.OVSX_REGISTRY_PAT }}
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
