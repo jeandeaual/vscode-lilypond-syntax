@@ -2,7 +2,14 @@
     "name": "lilypond-syntax",
     "displayName": "LilyPond Syntax",
     "publisher": "jeandeaual",
-    "repository": "https://github.com/jeandeaual/vscode-lilypond-syntax",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jeandeaual/vscode-lilypond-syntax"
+    },
+    "homepage": "https://github.com/jeandeaual/vscode-lilypond-syntax/blob/main/README.md",
+    "bugs": {
+        "url": "https://github.com/jeandeaual/vscode-lilypond-syntax/issues"
+    },
     "icon": "assets/icon.png",
     "description": "Adds support for LilyPond syntax highlighting (including embedded Scheme).",
     "version": "0.1.0",
@@ -23,6 +30,13 @@
     ],
     "extensionDependencies": [
         "sjhuangx.vscode-scheme"
+    ],
+    "badges": [
+        {
+            "url": "https://github.com/jeandeaual/vscode-lilypond-syntax/workflows/build/badge.svg",
+            "href": "https://github.com/jeandeaual/vscode-lilypond-syntax/actions?query=workflow%3Abuild",
+            "description": "GitHub build status"
+        }
     ],
     "contributes": {
         "languages": [
