@@ -7,5 +7,7 @@
 syntaxes/*.yaml
 src/**
 node_modules/**
+.eslintrc*
+.prettierrc*
 tsconfig.json
 yarn.lock

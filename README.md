@@ -13,7 +13,7 @@ LilyPond syntax highlighting for VSCode.
 
 ## Requirements
 
-* [VSCode](https://code.visualstudio.com/) 1.44.0 or newer
+* [VSCode](https://code.visualstudio.com/) 1.0.0 or newer
 
 ## Installation
 

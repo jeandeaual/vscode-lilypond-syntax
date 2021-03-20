@@ -21,7 +21,7 @@
             "type": "shell",
             "command": "npx vsce publish",
             "dependsOn": "Package",
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "YAML to JSON",
@@ -62,6 +62,13 @@
             "type": "shell",
             "command": "yq e -P ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.json > ${workspaceFolder}/syntaxes/lilypond.markdown.tmLanguage.yaml",
             "group": "build"
+        },
+        {
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": ["$eslint-stylish"],
+            "label": "npm: lint",
+            "detail": "eslint -c .eslintrc.js --ext .ts src/"
         }
     ]
 }
