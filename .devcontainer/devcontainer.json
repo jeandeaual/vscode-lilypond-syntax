@@ -17,11 +17,10 @@
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
+        "togusa09.tmlanguage",
         "dbaeumer.vscode-eslint",
         "redhat.vscode-yaml",
-        "eamodio.gitlens",
-        // Shouldn't the extension dependencies be installed automatically by VSCode when debugging?
-        "sjhuangx.vscode-scheme"
+        "eamodio.gitlens"
     ],
 
     // Use 'postCreateCommand' to run commands after the container is created.

@@ -139,8 +139,8 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
-      # - name: Publish the extension to the Eclipse Open VSX registry
-      #   run: npx ovsx publish "build/${PACKAGE_FILE}"
-      #   env:
-      #     OVSX_PAT: ${{ secrets.OVSX_REGISTRY_PAT }}
-      #     PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
+      - name: Publish the extension to the Eclipse Open VSX Registry
+        run: npx ovsx publish "build/${PACKAGE_FILE}"
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_REGISTRY_PAT }}
+          PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix

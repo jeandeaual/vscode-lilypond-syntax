@@ -31,9 +31,8 @@ LilyPond syntax highlighting for VSCode.
 
 ## Installation
 
-1. Open the Extensions left panel in VSCode (Windows: Ctrl+Shift+X; MacOS: Cmd+Shift+X)
-2. Type in `LilyPond Syntax` in the search bar
-3. Install the extension, then reload VSCode (Ctrl+R)
+* [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
+* [Open VSX Registry](https://open-vsx.org/extension/jeandeaual/lilypond-syntax)
 
 ## Build
 
