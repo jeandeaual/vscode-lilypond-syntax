@@ -880,7 +880,7 @@ repository:
         name: entity.name.class.keyword.lilypond
         content: LilyPond keyword
       - match: "\
-          \b(\
+          \\b(\
             NullVoice|\
             spacing|\
             signature|\
@@ -1047,7 +1047,7 @@ repository:
             unfold|\
             percent|\
             tremolo\
-          )\b"
+          )\\b"
         name: entity.name.function.reserved.lilypond
         content: Lilypond reserved word
       - match: (128|64|32|16|8|4|2|1|\\breve|\\longa|\\maxima)(\s*[.]\s*)*=\s*\d+(\s*~\s*\d+)?
@@ -1811,7 +1811,7 @@ repository:
         content: LilyPond hairpin
   percussion_notes:
     match: "\
-      \b(\
+      \\b(\
         (\
           (\
             (\
