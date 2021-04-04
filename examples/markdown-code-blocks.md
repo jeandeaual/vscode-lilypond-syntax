@@ -18,3 +18,11 @@
   }
 }
 ```
+
+```ly
+\version "2.20.0"
+{
+  % middle tie looks funny here:
+  <c' d'' b''>8. ~ <c' d'' b''>8
+}
+```

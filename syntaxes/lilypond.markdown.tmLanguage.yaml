@@ -4,7 +4,7 @@ patterns:
   - include: '#fenced_code_block_lilypond'
 repository:
   fenced_code_block_lilypond:
-    begin: (^|\G)(\s*)(`{3,}|~{3,})\s*(?i:(lilypond)(\s+[^`~]*)?$)
+    begin: (^|\G)(\s*)(`{3,}|~{3,})\s*(?i:(lilypond|ly)(\s+[^`~]*)?$)
     end: (^|\G)(\2|\s{0,3})(\3)\s*$
     contentName: meta.embedded.block.lilypond
     patterns:
