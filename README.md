@@ -1,8 +1,9 @@
 # VSCode LilyPond Syntax
 
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/version/jeandeaual.lilypond-syntax.svg)](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
 [![build](https://github.com/jeandeaual/vscode-lilypond-syntax/workflows/build/badge.svg)](https://github.com/jeandeaual/vscode-lilypond-syntax/actions?query=workflow%3Abuild)
 
-LilyPond syntax highlighting for VSCode.
+LilyPond syntax highlighting for Visual Studio Code.
 
 ## Features
 
@@ -27,11 +28,11 @@ LilyPond syntax highlighting for VSCode.
 
 ## Requirements
 
-* [VSCode](https://code.visualstudio.com/) 1.0.0 or newer
+* [Visual Studio Code](https://code.visualstudio.com/) 1.0.0 or newer
 
 ## Installation
 
-* [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
 * [Open VSX Registry](https://open-vsx.org/extension/jeandeaual/lilypond-syntax)
 
 ## Build
