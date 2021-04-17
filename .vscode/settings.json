@@ -3,5 +3,13 @@
     "files.associations": {
         "*.tmLanguage.json": "json-tmlanguage",
         "*.tmLanguage.yaml": "yaml-tmlanguage"
-    }
+    },
+    "codesnap.containerPadding": "0em",
+    "codesnap.roundedCorners": true,
+    "codesnap.showWindowControls": false,
+    "codesnap.showWindowTitle": false,
+    "codesnap.showLineNumbers": false,
+    "codesnap.transparentBackground": true,
+    "codesnap.target": "container",
+    "codesnap.shutterAction": "save"
 }

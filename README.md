@@ -1,4 +1,4 @@
-# VSCode LilyPond Syntax
+# Visual Studio Code LilyPond Syntax
 
 [![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/version/jeandeaual.lilypond-syntax.svg)](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
 [![build](https://github.com/jeandeaual/vscode-lilypond-syntax/workflows/build/badge.svg)](https://github.com/jeandeaual/vscode-lilypond-syntax/actions?query=workflow%3Abuild)

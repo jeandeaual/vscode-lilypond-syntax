@@ -20,7 +20,9 @@
         "togusa09.tmlanguage",
         "dbaeumer.vscode-eslint",
         "redhat.vscode-yaml",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "adpyke.codesnap",
+        "bierner.markdown-preview-github-styles"
     ],
 
     // Use 'postCreateCommand' to run commands after the container is created.
