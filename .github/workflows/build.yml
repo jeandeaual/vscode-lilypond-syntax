@@ -32,7 +32,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -54,7 +54,7 @@ jobs:
         env:
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
       - name: Upload the built extension
-        uses: actions/upload-artifact@v2.2.2
+        uses: actions/upload-artifact@v2.2.3
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
@@ -71,7 +71,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -98,7 +98,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
