@@ -81,7 +81,7 @@
         "jshint": "^2.12.0",
         "markdown-extract": "^1.0.2",
         "ovsx": "^0.1.0",
-        "prettier": "^2.2.1",
+        "prettier": "^2.3.2",
         "ts-node": "^10.0.0",
         "typescript": "^4.3.2",
         "vsce": "^1.87.1",
