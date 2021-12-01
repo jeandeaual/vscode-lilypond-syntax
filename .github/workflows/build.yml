@@ -32,7 +32,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -71,7 +71,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -98,7 +98,7 @@ jobs:
           node-version: '14'
       - name: Cache the Node modules
         id: cache-node-modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
