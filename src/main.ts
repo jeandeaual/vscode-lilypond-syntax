@@ -80,7 +80,7 @@ async function main() {
             out += '\\';
         });
 
-    out += content.substr(start + startRegexLen + end);
+    out += content.substring(start + startRegexLen + end);
 
     await writeFile(syntaxFile, out);
 }
