@@ -7,10 +7,6 @@
             "label": "Package",
             "type": "shell",
             "command": "npx vsce package",
-            "dependsOn": [
-                "YAML to JSON (LilyPond syntax)",
-                "YAML to JSON (LilyPond Markdown syntax)"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -68,7 +64,7 @@
             "script": "lint",
             "problemMatcher": ["$eslint-stylish"],
             "label": "npm: lint",
-            "detail": "eslint -c .eslintrc.js --ext .ts src/"
+            "detail": "eslint --ext .ts src/"
         }
     ]
 }
