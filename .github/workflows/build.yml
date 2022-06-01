@@ -54,7 +54,7 @@ jobs:
         env:
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
       - name: Upload the built extension
-        uses: actions/upload-artifact@v2.3.0
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
