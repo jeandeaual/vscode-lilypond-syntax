@@ -114,7 +114,7 @@ jobs:
           echo "::set-output name=name::$(jq -r '.name' package.json)"
           echo "::set-output name=version::$(jq -r '.version' package.json)"
       - name: Download the build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
