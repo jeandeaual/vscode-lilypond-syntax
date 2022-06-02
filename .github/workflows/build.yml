@@ -30,17 +30,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          cache: 'yarn'
+      - name: Update yarn
+        run: yarn set version stable
       - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install
+        run: yarn install --immutable --immutable-cache --check-cache
       - name: Build the extension
-        run: npx vsce package
+        run: npx vsce package --yarn
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
@@ -69,15 +65,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          cache: 'yarn'
+      - name: Update yarn
+        run: yarn set version stable
       - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install
+        run: yarn install --immutable --immutable-cache --check-cache
       - name: Lint
         run: yarn lint -f ./node_modules/@firmnav/eslint-github-actions-formatter/dist/formatter.js
   release:
@@ -96,15 +88,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          cache: 'yarn'
+      - name: Update yarn
+        run: yarn set version stable
       - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install
+        run: yarn install --immutable --immutable-cache --check-cache
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"

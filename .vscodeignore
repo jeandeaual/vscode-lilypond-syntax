@@ -10,6 +10,8 @@ examples/**
 syntaxes/*.yaml
 src/**
 node_modules/**
+.yarn/**
+.yarnrc.yml
 .eslintrc*
 .prettierrc*
 tsconfig.json
