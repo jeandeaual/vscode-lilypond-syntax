@@ -70,7 +70,7 @@
     },
     "devDependencies": {
         "@firmnav/eslint-github-actions-formatter": "^1.0.1",
-        "@types/node": "^16.11.2",
+        "@types/node": "^18.0.0",
         "@types/xmldom": "^0.1.31",
         "@typescript-eslint/eslint-plugin": "^5.7.0",
         "@typescript-eslint/parser": "^5.7.0",
