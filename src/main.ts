@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from 'axios';
 import { readFile, writeFile } from 'fs/promises';
 import { DOMParser as dom } from 'xmldom';
 import xpath, { SelectedValue } from 'xpath';
@@ -23,10 +22,11 @@ function parse(htmlData: string, xpathQuery: string): Array<SelectedValue> {
 
 async function main() {
     const syntaxFile = 'syntaxes/lilypond.tmLanguage.yaml';
-    const url = 'https://lilypond.org/doc/v2.22/Documentation/internals/scheme-functions';
-    const xpathQuery = '//dl/dt/b/text()';
-    const startRegex = /define-markup-list-command\|\\/;
-    const startRegexLen = 28;
+    const urls: Record<string, string> = {
+        'https://lilypond.org/doc/v2.23/Documentation/internals/scheme-functions': '//dl/dt/b/code/text()',
+        'https://lilypond.org/doc/v2.22/Documentation/internals/scheme-functions': '//dl/dt/b/text()'
+    };
+    const startRegex = 'lilypond-scheme:';
     const endRegex = / {10}\)\\/;
     const toReplace: Array<[RegExp, string]> = [
         [/&lt;/g, '<'],
@@ -34,14 +34,26 @@ async function main() {
     ];
     const toEscape = ['?', '|'];
 
-    // Fetch the documentation page
-    const response: AxiosResponse = await axios.get(url);
+    let definitions = new Array<string>();
 
-    // Get the definitions using an XPath query
-    const nodes = parse(response.data, xpathQuery);
-    if (nodes.length == 0) {
-        console.error(`No definition found in ${url} using XPath query ${xpathQuery})`);
-        process.exit(1);
+    for (const [url, xpathQuery] of Object.entries(urls)) {
+        // Fetch the documentation page
+        const response = await fetch(url);
+        if (!response.ok) {
+            console.error(`${url} returned an error (${response.status} ${response.statusText})`);
+            process.exit(1);
+        }
+
+        // Get the definitions using an XPath query
+        const nodes = parse(await response.text(), xpathQuery);
+        if (nodes.length == 0) {
+            console.error(`No definition found in ${url} using XPath query ${JSON.stringify(xpathQuery)})`);
+            process.exit(1);
+        }
+
+        console.log(`Found ${nodes.length} definitions in ${url}`);
+
+        definitions = [...new Set([...definitions, ...nodes.map(node => node.toString().trim())])];
     }
 
     // Read the syntax file
@@ -54,33 +66,36 @@ async function main() {
         process.exit(1);
     }
 
-    const end = content.substr(start + startRegexLen + 1).search(endRegex);
+    const end = content.substring(start + startRegex.length + 1).search(endRegex);
 
-    let out = content.substr(0, start + startRegexLen);
+    let out = content.substring(0, start + startRegex.length);
 
-    nodes
-        .map(node => node.toString().trim())
-        .forEach((definition, idx, array) => {
-            out += '\n            ';
+    out += '\n';
+    out += '    patterns:\n';
+    out += '      - match: "\\\n';
+    out += '          \\\\b(\\';
 
-            for (const [sequence, replace] of toReplace) {
-                definition = definition.replace(sequence, replace);
-            }
+    definitions.forEach((definition, idx, array) => {
+        out += '\n            ';
 
-            for (const char of toEscape) {
-                definition = definition.replace(char, `\\\\${char}`);
-            }
+        for (const [sequence, replace] of toReplace) {
+            definition = definition.replace(sequence, replace);
+        }
 
-            out += definition;
+        for (const char of toEscape) {
+            definition = definition.replace(char, `\\\\${char}`);
+        }
 
-            if (idx !== array.length - 1) {
-                out += '|';
-            }
+        out += definition;
 
-            out += '\\';
-        });
+        if (idx !== array.length - 1) {
+            out += '|';
+        }
 
-    out += content.substring(start + startRegexLen + end);
+        out += '\\';
+    });
+
+    out += content.substring(start + startRegex.length + end);
 
     await writeFile(syntaxFile, out);
 }
