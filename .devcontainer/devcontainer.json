@@ -4,9 +4,9 @@
     "name": "Node.js & TypeScript",
     "build": {
         "dockerfile": "Dockerfile",
-        // Update 'VARIANT' to pick a Node version: 10, 12, 14, 16
+        // Update 'VARIANT' to pick a Node version: 10, 12, 14, 16, 18
         "args": {
-            "VARIANT": "16"
+            "VARIANT": "18"
         }
     },
 
@@ -17,7 +17,7 @@
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        "togusa09.tmlanguage",
+        "pedro-w.tmlanguage",
         "dbaeumer.vscode-eslint",
         "redhat.vscode-yaml",
         "eamodio.gitlens",
@@ -29,5 +29,9 @@
     "postCreateCommand": "yarn install",
 
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "node"
+    "remoteUser": "node",
+
+    "features": {
+        "git": "latest"
+    }
 }

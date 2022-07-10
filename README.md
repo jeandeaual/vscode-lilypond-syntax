@@ -1,4 +1,4 @@
-# Visual Studio Code LilyPond Syntax
+# LilyPond Syntax for Visual Studio Code
 
 [![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/version/jeandeaual.lilypond-syntax.svg)](https://marketplace.visualstudio.com/items?itemName=jeandeaual.lilypond-syntax)
 [![build](https://github.com/jeandeaual/vscode-lilypond-syntax/workflows/build/badge.svg)](https://github.com/jeandeaual/vscode-lilypond-syntax/actions?query=workflow%3Abuild)
@@ -39,7 +39,7 @@ LilyPond syntax highlighting for Visual Studio Code.
 
 ```sh
 yarn install
-npx vsce package
+npx vsce package --yarn
 ```
 
 ## Release Notes
