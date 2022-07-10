@@ -4,43 +4,35 @@ on:
     branches:
       - master
     paths-ignore:
-      - 'LICENSE'
-      - '.git*'
-      - '**.md'
-      - '.vscode/*'
+      - LICENSE
+      - .git*
+      - "**.md"
+      - .vscode/*
   push:
     tags:
-      - 'v*'
+      - v*
     branches:
       - master
     paths-ignore:
-      - 'LICENSE'
-      - '.git*'
-      - '**.md'
-      - '.vscode/*'
+      - LICENSE
+      - .git*
+      - "**.md"
+      - .vscode/*
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install
+          node-version: 18
+          cache: yarn
       - name: Build the extension
-        run: npx vsce package
+        run: npx vsce package --yarn
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
@@ -54,7 +46,7 @@ jobs:
         env:
           PACKAGE_FILE: ${{ steps.packageInfo.outputs.name }}-${{ steps.packageInfo.outputs.version }}.vsix
       - name: Upload the built extension
-        uses: actions/upload-artifact@v2.3.0
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
@@ -62,21 +54,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          node-version: 18
+          cache: yarn
       - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: yarn install
       - name: Lint
         run: yarn lint -f ./node_modules/@firmnav/eslint-github-actions-formatter/dist/formatter.js
@@ -89,22 +75,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
-      - name: Cache the Node modules
-        id: cache-node-modules
-        uses: actions/cache@v2.1.7
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install the dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install
+          node-version: 18
+          cache: yarn
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
@@ -114,14 +92,14 @@ jobs:
           echo "::set-output name=name::$(jq -r '.name' package.json)"
           echo "::set-output name=version::$(jq -r '.version' package.json)"
       - name: Download the build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
           path: build
-      - uses: olegtarasov/get-tag@v2.1
+      - uses: olegtarasov/get-tag@v2.1.1
         id: tagName
         with:
-          tagRegex: "v(?<version>.*)"
+          tagRegex: v(?<version>.*)
       - name: Get the changelog
         run: cat CHANGELOG.md | npx md-extract '\['"${VERSION}"'\]' > release-body.md
         env:
