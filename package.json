@@ -2,6 +2,7 @@
     "name": "lilypond-syntax",
     "displayName": "LilyPond Syntax",
     "publisher": "jeandeaual",
+    "private": true,
     "repository": {
         "type": "git",
         "url": "https://github.com/jeandeaual/vscode-lilypond-syntax"

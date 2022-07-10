@@ -5,15 +5,15 @@ fileTypes:
   - ly
   - ily
 patterns:
-  - include: '#notenames'
-  - include: '#internals'
-  - include: '#notemode'
-  - include: '#drummode'
-  - include: '#lyricsmode'
-  - include: '#notemode-explicit'
-  - include: '#markupmode'
-  - include: '#figbassmode'
-  - include: '#embedded-scheme'
+  - include: "#notenames"
+  - include: "#internals"
+  - include: "#notemode"
+  - include: "#drummode"
+  - include: "#lyricsmode"
+  - include: "#notemode-explicit"
+  - include: "#markupmode"
+  - include: "#figbassmode"
+  - include: "#embedded-scheme"
 repository:
   notenames:
     patterns:
@@ -1061,7 +1061,7 @@ repository:
         content: LilyPond number with optional augmentation dots
   notemode:
     patterns:
-      - include: '#notedrum'
+      - include: "#notedrum"
       - name: meta.lilypond.notemode
         begin: ({)
         end: (})
@@ -1073,14 +1073,14 @@ repository:
             name: entity.other.lilypond
         patterns:
           - include: $self
-      - include: '#notenames'
-      - include: '#internals'
-      - include: '#drummode'
-      - include: '#lyricsmode'
-      - include: '#notemode-explicit'
-      - include: '#markupmode'
-      - include: '#figbassmode'
-      - include: '#embedded-scheme'
+      - include: "#notenames"
+      - include: "#internals"
+      - include: "#drummode"
+      - include: "#lyricsmode"
+      - include: "#notemode-explicit"
+      - include: "#markupmode"
+      - include: "#figbassmode"
+      - include: "#embedded-scheme"
   drummode:
     patterns:
       - name: meta.lilypond.drummode
@@ -1099,15 +1099,15 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#notedrum'
-          - include: '#percussion_notes'
-          - include: '#internals'
-          - include: '#notemode-explicit'
+          - include: "#notedrum"
+          - include: "#percussion_notes"
+          - include: "#internals"
+          - include: "#notemode-explicit"
           - include: $self
-          - include: '#lyricsmode'
-          - include: '#markupmode'
-          - include: '#figbassmode'
-          - include: '#embedded-scheme'
+          - include: "#lyricsmode"
+          - include: "#markupmode"
+          - include: "#figbassmode"
+          - include: "#embedded-scheme"
       - name: meta.lilypond.drummode
         begin: ({)
         end: (})
@@ -1118,15 +1118,15 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#notedrum'
-          - include: '#percussion_notes'
-          - include: '#internals'
-          - include: '#lyricsmode'
+          - include: "#notedrum"
+          - include: "#percussion_notes"
+          - include: "#internals"
+          - include: "#lyricsmode"
           - include: $self
-          - include: '#notemode-explicit'
-          - include: '#markupmode'
-          - include: '#figbassmode'
-          - include: '#embedded-scheme'
+          - include: "#notemode-explicit"
+          - include: "#markupmode"
+          - include: "#figbassmode"
+          - include: "#embedded-scheme"
   lyricsmode:
     patterns:
       - name: meta.lilypond.lyricsmode
@@ -1161,13 +1161,13 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#separator'
-          - include: '#melisma'
-          - include: '#elision'
-          - include: '#internals'
+          - include: "#separator"
+          - include: "#melisma"
+          - include: "#elision"
+          - include: "#internals"
           - include: $self
-          - include: '#markupmode'
-          - include: '#embedded-scheme'
+          - include: "#markupmode"
+          - include: "#embedded-scheme"
       - name: meta.lilypond.lyricsmode.nested
         begin: ({)
         end: (})
@@ -1178,13 +1178,13 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#separator'
-          - include: '#melisma'
-          - include: '#elision'
-          - include: '#internals'
+          - include: "#separator"
+          - include: "#melisma"
+          - include: "#elision"
+          - include: "#internals"
           - include: $self
-          - include: '#markupmode'
-          - include: '#embedded-scheme'
+          - include: "#markupmode"
+          - include: "#embedded-scheme"
   notemode-explicit:
     patterns:
       - name: meta.lilypond-notemode-explicit
@@ -1202,14 +1202,14 @@ repository:
             name: entity.other.lilypond
         patterns:
           - include: $self
-          - include: '#notenames'
-          - include: '#internals'
-          - include: '#notemode'
-          - include: '#lyricsmode'
-          - include: '#notemode-explicit'
-          - include: '#markupmode'
-          - include: '#figbassmode'
-          - include: '#embedded-scheme'
+          - include: "#notenames"
+          - include: "#internals"
+          - include: "#notemode"
+          - include: "#lyricsmode"
+          - include: "#notemode-explicit"
+          - include: "#markupmode"
+          - include: "#figbassmode"
+          - include: "#embedded-scheme"
   markupmode:
     patterns:
       - name: meta.lilypond.markupmode.singleword
@@ -1223,10 +1223,10 @@ repository:
           "8":
             name: entity.name.class.keyword.lilypond
         patterns:
-          - include: '#internals'
-          - include: '#notemode-explicit'
+          - include: "#internals"
+          - include: "#notemode-explicit"
           - include: $self
-          - include: '#embedded-scheme'
+          - include: "#embedded-scheme"
       - name: meta.lilypond.markupmode
         begin: ([-_^](\s*))?(((\\markup\s*)({))|((\\markuplist\s*)({)))
         end: (})
@@ -1243,10 +1243,10 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#internals'
-          - include: '#notemode-explicit'
+          - include: "#internals"
+          - include: "#notemode-explicit"
           - include: $self
-          - include: '#embedded-scheme'
+          - include: "#embedded-scheme"
       - name: meta.lilypond.markupmode.nested
         begin: ({)
         end: (})
@@ -1257,10 +1257,10 @@ repository:
           "1":
             name: entity.other.lilypond
         patterns:
-          - include: '#internals'
-          - include: '#notemode-explicit'
+          - include: "#internals"
+          - include: "#notemode-explicit"
           - include: $self
-          - include: '#embedded-scheme'
+          - include: "#embedded-scheme"
   figbassmode:
     patterns:
       - name: meta.lilypond.figbassmode
@@ -1284,76 +1284,131 @@ repository:
             name: entity.other.lilypond
         patterns:
           - include: $self
-          - include: '#internals'
-          - include: '#notemode-explicit'
-          - include: '#markupmode'
-          - include: '#figuregroup'
-          - include: '#embedded-scheme'
+          - include: "#internals"
+          - include: "#notemode-explicit"
+          - include: "#markupmode"
+          - include: "#figuregroup"
+          - include: "#embedded-scheme"
   embedded-scheme:
     patterns:
       - name: meta.lilypond.scheme
         begin: \$(`|')?\(
         end: \)
         patterns:
-          - include: '#lilypond-scheme'
+          - include: "#lilypond-scheme"
       - name: meta.lilypond.scheme
         begin: '#(`|'')?\('
         end: \)
         patterns:
-          - include: '#lilypond-scheme'
-      - begin: '#'
+          - include: "#lilypond-scheme"
+      - begin: "#"
         end: \s
         name: meta.lilypond.scheme
         patterns:
-          - include: '#lilypond-scheme'
+          - include: "#lilypond-scheme"
       - begin: '\$'
         end: \s
         name: meta.lilypond.scheme
         patterns:
-          - include: '#lilypond-scheme'
+          - include: "#lilypond-scheme"
   lilypond-scheme:
     patterns:
       - match: "\
           \\b(\
-            define-scheme-function|\
-            define-music-function|\
-            define-event-function|\
-            define-markup-command|\
-            define-markup-list-command|\
+            add-bar-glyph-print-procedure|\
             ly:add-context-mod|\
-            ly:add-file-name-alist|\
+            add-grace-property|\
             ly:add-interface|\
             ly:add-listener|\
+            add-music-fonts|\
+            add-new-clef|\
             ly:add-option|\
+            add-simple-time-signature-style|\
+            add-stroke-glyph|\
+            add-stroke-straight|\
+            alist->hash-table|\
             ly:all-grob-interfaces|\
             ly:all-options|\
+            ly:all-output-backend-commands|\
+            ly:all-stencil-commands|\
             ly:all-stencil-expressions|\
+            allow-volta-hook|\
+            alterations-in-key|\
             ly:angle|\
+            angle-0-2pi|\
+            angle-0-360|\
+            arrow-stencil|\
+            arrow-stencil-maker|\
             ly:assoc-get|\
+            assoc-get|\
             ly:axis-group-interface::add-element|\
+            ly:bar-line::calc-anchor|\
+            bar-line::calc-break-visibility|\
+            bar-line::calc-glyph-name|\
+            bar-line::calc-glyph-name-for-direction|\
+            bar-line::compound-bar-line|\
+            bar-line::draw-filled-box|\
+            ly:bar-line::print|\
+            bar-line::widen-bar-extent-on-span|\
+            base-length|\
             ly:basic-progress|\
-            ly:beam-score-count|\
+            beam-exceptions|\
+            beat-structure|\
+            bend::arrow-head-stencil|\
+            bend::calc-bend-x-begin|\
+            bend::calc-bend-x-end|\
+            bend::target-cautionary|\
+            bend::text-string|\
+            bend-spanner::print|\
+            ly:bezier-extent|\
+            ly:bezier-extract|\
             ly:book\\?|\
             ly:book-add-bookpart!|\
             ly:book-add-score!|\
             ly:book-book-parts|\
+            book-first-page|\
             ly:book-header|\
             ly:book-paper|\
             ly:book-process|\
             ly:book-process-to-systems|\
             ly:book-scores|\
             ly:book-set-header!|\
-            ly:box\\?|\
+            box-grob-stencil|\
+            box-stencil|\
             ly:bp|\
             ly:bracket|\
+            bracketify-stencil|\
+            break-alignable-interface::self-alignment-of-anchor|\
+            break-alignable-interface::self-alignment-opposite-of-anchor|\
+            break-alignment-list|\
             ly:broadcast|\
+            ly:cairo-output-stencil|\
+            ly:cairo-output-stencils|\
+            calc-harmonic-pitch|\
             ly:camel-case->lisp-identifier|\
+            car<|\
+            car<=|\
+            centered-spanner-interface::calc-x-offset|\
+            centered-stencil|\
             ly:chain-assoc-get|\
+            chain-assoc-get|\
+            change-pitches|\
+            check-context-path|\
             ly:check-expected-warnings|\
+            check-grob-path|\
+            check-music-path|\
+            circle-stencil|\
+            clef-transposition-markup|\
             ly:cm|\
+            collect-book-music-for-book|\
+            collect-bookpart-for-book|\
+            collect-music-aux|\
+            collect-music-for-book|\
             ly:command-line-code|\
             ly:command-line-options|\
             ly:connect-dispatchers|\
+            constante-hairpin|\
+            construct-chord-elements|\
             ly:context\\?|\
             ly:context-current-moment|\
             ly:context-def\\?|\
@@ -1368,41 +1423,106 @@ repository:
             ly:context-mod\\?|\
             ly:context-mod-apply!|\
             ly:context-name|\
-            ly:context-now|\
+            ly:context-output-def|\
             ly:context-parent|\
             ly:context-property|\
             ly:context-property-where-defined|\
             ly:context-pushpop-property|\
             ly:context-set-property!|\
+            context-spec-music|\
             ly:context-unset-property|\
+            copy-repeat-chord|\
+            count-list|\
+            create-glyph-flag|\
+            cross-staff-connect|\
+            cue-substitute|\
+            cyclic-base-value|\
             ly:debug|\
+            default-flag|\
             ly:default-scale|\
+            define-bar-line|\
+            define-event-class|\
+            define-event-function|\
+            define-fonts|\
+            define-markup-command|\
+            define-markup-list-command|\
+            define-music-function|\
+            define-scheme-function|\
+            define-syntax-function|\
+            define-tag-group|\
+            define-void-function|\
+            degrees->radians|\
+            descend-to-context|\
+            determine-split-list|\
+            determine-string-fret-finger|\
             ly:dimension\\?|\
             ly:dir\\?|\
+            dir-basename|\
             ly:directed|\
             ly:disconnect-dispatchers|\
             ly:dispatcher\\?|\
+            display-lily-music|\
+            display-music|\
+            display-scheme-music|\
+            dodecaphonic-no-repeat-rule|\
             ly:duration\\?|\
             ly:duration<\\?|\
             ly:duration->string|\
+            ly:duration-compress|\
             ly:duration-dot-count|\
+            duration-dot-factor|\
             ly:duration-factor|\
             ly:duration-length|\
+            duration-length|\
+            duration-line::calc|\
+            duration-line::print|\
             ly:duration-log|\
+            duration-log-factor|\
             ly:duration-scale|\
+            duration-visual|\
+            duration-visual-length|\
+            dynamic-text-spanner::before-line-breaking|\
             ly:effective-prefix|\
+            ellipse-stencil|\
             ly:encode-string-for-pdf|\
+            end-broken-spanner\\?|\
             ly:engraver-announce-end-grob|\
             ly:engraver-make-grob|\
+            ly:engraver-make-item|\
+            ly:engraver-make-spanner|\
+            ly:engraver-make-sticky|\
             ly:error|\
+            eval-carefully|\
             ly:event\\?|\
+            event-chord-notes|\
+            event-chord-pitches|\
+            event-chord-reduce|\
+            event-chord-wrap!|\
             ly:event-deep-copy|\
+            event-has-articulation\\?|\
             ly:event-property|\
             ly:event-set-property!|\
-            ly:expand-environment|\
+            expand-repeat-chords!|\
+            expand-repeat-notes!|\
             ly:expect-warning|\
+            extract-beam-exceptions|\
+            extract-music|\
+            extract-named-music|\
             ly:extract-subfont-from-collection|\
+            extract-typed-music|\
+            filtered-map|\
             ly:find-file|\
+            find-named-props|\
+            find-pitch-entry|\
+            finger-glide::print|\
+            first-assoc|\
+            first-broken-spanner\\?|\
+            first-member|\
+            flared-hairpin|\
+            flat-flag|\
+            flatten-list|\
+            flip-stencil|\
+            fold-some-music|\
             ly:font-config-add-directory|\
             ly:font-config-add-font|\
             ly:font-config-display-fonts|\
@@ -1416,20 +1536,38 @@ repository:
             ly:font-magnification|\
             ly:font-metric\\?|\
             ly:font-name|\
+            font-name-split|\
             ly:font-sub-fonts|\
+            for-some-music|\
             ly:format|\
             ly:format-output|\
+            format-segno-mark-considering-bar-lines|\
+            fret->pitch|\
+            fret-parse-terse-definition-string|\
+            function-chain|\
+            generate-crop-stencil|\
+            generate-preview-stencil|\
             ly:generic-bound-extent|\
             ly:get-all-function-documentation|\
             ly:get-all-translators|\
+            get-bound-note-heads|\
             ly:get-cff-offset|\
+            get-chord-shape|\
             ly:get-context-mods|\
             ly:get-font-format|\
             ly:get-option|\
+            get-postscript-bbox|\
             ly:get-spacing-spec|\
-            ly:get-undead|\
-            ly:gettext|\
+            get-tweakable-music|\
             ly:grob\\?|\
+            grob::all-objects|\
+            grob::compose-function|\
+            grob::display-objects|\
+            grob::name|\
+            grob::offset-function|\
+            grob::rhythmic-location|\
+            grob::unpure-Y-extent-from-stencil|\
+            grob::when|\
             ly:grob-alist-chain|\
             ly:grob-array\\?|\
             ly:grob-array->list|\
@@ -1444,6 +1582,7 @@ repository:
             ly:grob-get-vertical-axis-group-index|\
             ly:grob-interfaces|\
             ly:grob-layout|\
+            ly:grob-list->grob-array|\
             ly:grob-object|\
             ly:grob-original|\
             ly:grob-parent|\
@@ -1460,67 +1599,138 @@ repository:
             ly:grob-set-object!|\
             ly:grob-set-parent!|\
             ly:grob-set-property!|\
-            ly:grob-spanned-rank-interval|\
+            ly:grob-spanned-column-rank-interval|\
             ly:grob-staff-position|\
             ly:grob-suicide!|\
             ly:grob-system|\
+            grob-transformer|\
             ly:grob-translate-axis!|\
             ly:grob-vertical<\\?|\
             ly:gulp-file|\
+            ly:gulp-file-utf8|\
             ly:has-glyph-names\\?|\
             ly:hash-table-keys|\
+            headers-property-alist-chain|\
+            hook-stencil|\
+            ly:in-event-class\\?|\
             ly:inch|\
             ly:input-both-locations|\
             ly:input-file-line-char-column|\
             ly:input-location\\?|\
             ly:input-message|\
             ly:input-warning|\
+            interpret-markup|\
             ly:interpret-music-expression|\
+            interval-center|\
+            interval-index|\
+            interval-length|\
             ly:intlog2|\
+            invalidate-alterations|\
             ly:item\\?|\
+            item::extra-spacing-height-including-staff|\
             ly:item-break-dir|\
             ly:item-get-column|\
             ly:iterator\\?|\
+            layout-line-thickness|\
+            layout-set-absolute-staff-size|\
+            layout-set-staff-size|\
             ly:length|\
             ly:lily-lexer\\?|\
             ly:lily-parser\\?|\
+            lilypond-main|\
+            lilypond-version-outdated\\?|\
             ly:line-interface::line|\
+            list-insert-separator|\
+            list-join|\
             ly:listened-event-class\\?|\
             ly:listened-event-types|\
             ly:listener\\?|\
+            lookup-markup-command|\
+            lyric-hyphen::vaticana-style|\
+            lyric-text::print|\
             ly:make-book|\
             ly:make-book-part|\
+            make-bow-stencil|\
+            make-c-time-signature-markup|\
+            make-circle-stencil|\
+            make-clef-set|\
+            make-connected-line|\
+            make-connected-path-stencil|\
             ly:make-context-mod|\
+            make-cue-clef-set|\
+            make-cue-clef-unset|\
             ly:make-dispatcher|\
             ly:make-duration|\
+            make-duration-of-length|\
+            make-ellipse-stencil|\
+            make-engraver|\
+            make-filled-box-stencil|\
             ly:make-global-context|\
             ly:make-global-translator|\
+            make-glyph-time-signature-markup|\
             ly:make-grob-properties|\
+            make-grob-property-override|\
+            make-grob-property-revert|\
+            make-grob-property-set|\
+            make-harmonic|\
+            make-line-stencil|\
+            ly:make-listener|\
+            make-modal-inverter|\
+            make-modal-transposer|\
             ly:make-moment|\
             ly:make-music|\
+            make-music|\
             ly:make-music-function|\
             ly:make-music-relative!|\
             ly:make-output-def|\
+            make-oval-stencil|\
             ly:make-page-label-marker|\
             ly:make-page-permission-marker|\
             ly:make-pango-description-string|\
             ly:make-paper-outputter|\
+            make-part-combine-context-changes|\
+            make-part-combine-marks|\
+            make-partial-ellipse-stencil|\
+            make-path-stencil|\
+            make-performer|\
             ly:make-pitch|\
             ly:make-prob|\
+            make-relative|\
+            make-repeat|\
             ly:make-rotation|\
             ly:make-scale|\
             ly:make-scaling|\
             ly:make-score|\
+            make-semitone->pitch|\
             ly:make-spring|\
             ly:make-stencil|\
+            make-stencil-boxer|\
+            make-stencil-circler|\
             ly:make-stream-event|\
+            make-tmpfile|\
             ly:make-transform|\
             ly:make-translation|\
-            ly:make-undead|\
+            make-translator|\
+            make-transparent-box-stencil|\
             ly:make-unpure-pure-container|\
+            map-selected-alist-keys|\
+            map-some-music|\
+            markup|\
+            markup->string|\
+            markup-command-list\\?|\
+            markup-default-to-string-method|\
+            markup-lambda|\
+            markup-list\\?|\
+            markup-list-lambda|\
+            measure-counter::text|\
+            mensural-flag|\
             ly:message|\
+            middle-broken-spanner\\?|\
+            midi-program|\
             ly:minimal-breaking|\
             ly:mm|\
+            mmrest-of-length|\
+            modern-straight-flag|\
             ly:module->alist|\
             ly:module-copy|\
             ly:modules-lookup|\
@@ -1538,24 +1748,48 @@ repository:
             ly:moment-mul|\
             ly:moment-sub|\
             ly:music\\?|\
+            music->make-music|\
+            music-clone|\
             ly:music-compress|\
             ly:music-deep-copy|\
             ly:music-duration-compress|\
             ly:music-duration-length|\
+            music-filter|\
             ly:music-function\\?|\
             ly:music-function-extract|\
             ly:music-function-signature|\
+            music-is-of-type\\?|\
             ly:music-length|\
             ly:music-list\\?|\
+            music-map|\
             ly:music-mutable-properties|\
             ly:music-output\\?|\
+            music-pitches|\
             ly:music-property|\
+            music-selective-filter|\
+            music-selective-map|\
+            music-separator\\?|\
             ly:music-set-property!|\
+            ly:music-start|\
             ly:music-transpose|\
+            music-type-predicate|\
+            neo-modern-accidental-rule|\
+            no-flag|\
+            ly:non-fatal-error|\
+            normal-flag|\
+            not-first-broken-spanner\\?|\
+            not-last-broken-spanner\\?|\
             ly:note-column-accidentals|\
             ly:note-column-dot-column|\
             ly:note-head::stem-attachment|\
+            note-name->markup|\
+            note-name->string|\
+            note-to-cluster|\
             ly:number->string|\
+            number-format|\
+            offset-fret|\
+            offsetter|\
+            old-straight-flag|\
             ly:one-line-auto-height-breaking|\
             ly:one-line-breaking|\
             ly:one-page-breaking|\
@@ -1575,16 +1809,22 @@ repository:
             ly:output-def-set-variable!|\
             ly:output-description|\
             ly:output-find-context-def|\
-            ly:output-formats|\
+            output-module\\?|\
             ly:outputter-close|\
             ly:outputter-dump-stencil|\
             ly:outputter-dump-string|\
             ly:outputter-output-scheme|\
             ly:outputter-port|\
+            oval-stencil|\
+            override-head-style|\
+            override-time-signature-setting|\
             ly:page-marker\\?|\
             ly:page-turn-breaking|\
             ly:pango-font\\?|\
             ly:pango-font-physical-fonts|\
+            pango-pf-file-name|\
+            pango-pf-font-name|\
+            pango-pf-fontindex|\
             ly:paper-book\\?|\
             ly:paper-book-header|\
             ly:paper-book-pages|\
@@ -1601,8 +1841,11 @@ repository:
             ly:paper-score-paper-systems|\
             ly:paper-system\\?|\
             ly:paper-system-minimum-distance|\
+            parenthesize-stencil|\
             ly:parse-file|\
+            ly:parse-init|\
             ly:parse-string-expression|\
+            parse-terse-string|\
             ly:parsed-undead-list!|\
             ly:parser-clear-error|\
             ly:parser-clone|\
@@ -1610,11 +1853,11 @@ repository:
             ly:parser-error|\
             ly:parser-has-error\\?|\
             ly:parser-include-string|\
-            ly:parser-lexer|\
             ly:parser-lookup|\
             ly:parser-output-name|\
             ly:parser-parse-string|\
             ly:parser-set-note-names|\
+            percussion\\?|\
             ly:performance-headers|\
             ly:performance-write|\
             ly:pitch\\?|\
@@ -1630,7 +1873,9 @@ repository:
             ly:pitch-tones|\
             ly:pitch-transpose|\
             ly:pointer-group-interface::add-grob|\
+            polar->rectangular|\
             ly:position-on-line\\?|\
+            prepend-alist-chain|\
             ly:prob\\?|\
             ly:prob-immutable-properties|\
             ly:prob-mutable-properties|\
@@ -1641,18 +1886,34 @@ repository:
             ly:programming-error|\
             ly:progress|\
             ly:property-lookup-stats|\
-            ly:protects|\
             ly:pt|\
             ly:pure-call|\
+            pure-chain-offset-callback|\
             ly:randomize-rand-seed|\
+            ratio->fret|\
+            ratio->pitch|\
+            read-lily-expression|\
+            recording-group-emulate|\
             ly:register-stencil-expression|\
             ly:register-translator|\
             ly:relative-group-extent|\
+            remove-grace-property|\
+            remove-whitespace|\
             ly:rename-file|\
             ly:reset-all-fonts|\
+            retrieve-glyph-flag|\
+            retrograde-music|\
+            revert-fontSize|\
+            revert-head-style|\
+            revert-props|\
             ly:round-filled-box|\
-            ly:round-filled-polygon|\
+            ly:round-polygon|\
+            rounded-box-stencil|\
             ly:run-translator|\
+            scale-beam-thickness|\
+            scale-fontSize|\
+            scale-layout|\
+            scale-props|\
             ly:score\\?|\
             ly:score-add-output-def!|\
             ly:score-embedded-format|\
@@ -1661,33 +1922,63 @@ repository:
             ly:score-music|\
             ly:score-output-defs|\
             ly:score-set-header!|\
-            ly:separation-item::print|\
+            scorify-music|\
+            seconds->moment|\
+            select-head-glyph|\
+            self-alignment-interface::self-aligned-on-breakable|\
+            sequential-music-to-chord-exceptions|\
+            set-accidental-style|\
+            ly:set-color-names|\
             ly:set-default-scale|\
+            set-global-staff-size|\
+            ly:set-grob-creation-callback|\
             ly:set-grob-modification-callback|\
             ly:set-middle-C!|\
+            set-mus-properties!|\
             ly:set-option|\
             ly:set-origin!|\
             ly:set-property-cache-callback|\
+            shift-one-duration-log|\
+            shift-right-at-line-begin|\
+            skip->rest|\
+            skip-of-length|\
+            skip-of-moment-span|\
             ly:skyline\\?|\
+            ly:skyline-distance|\
             ly:skyline-empty\\?|\
-            ly:skyline-pair\\?|\
-            ly:slur-score-count|\
+            ly:skyline-height|\
+            ly:skyline-max-height|\
+            ly:skyline-max-height-position|\
+            ly:skyline-touching-point|\
+            ly:skylines-for-stencil|\
             ly:smob-protects|\
             ly:solve-spring-rod-problem|\
             ly:source-file\\?|\
             ly:source-files|\
+            ly:span-bar::before-line-breaking|\
+            ly:span-bar::calc-glyph-name|\
+            span-bar::compound-bar-line|\
+            ly:span-bar::print|\
+            ly:span-bar::width|\
+            Span_stem_engraver|\
             ly:spanner\\?|\
             ly:spanner-bound|\
             ly:spanner-broken-into|\
             ly:spanner-set-bound!|\
             ly:spawn|\
+            split-list-by-separator|\
             ly:spring\\?|\
             ly:spring-set-inverse-compress-strength!|\
             ly:spring-set-inverse-stretch-strength!|\
+            stack-lines|\
+            stack-stencil-line|\
+            stack-stencils|\
+            stack-stencils-padding-list|\
+            staff-ellipsis::calc-y-extent|\
+            staff-ellipsis::print|\
             ly:staff-symbol-line-thickness|\
             ly:staff-symbol-staff-radius|\
             ly:staff-symbol-staff-space|\
-            ly:start-environment|\
             ly:stderr-redirect|\
             ly:stencil\\?|\
             ly:stencil-add|\
@@ -1704,11 +1995,26 @@ repository:
             ly:stencil-stack|\
             ly:stencil-translate|\
             ly:stencil-translate-axis|\
+            stencil-true-extent|\
+            stencil-whiteout|\
+            stencil-whiteout-box|\
+            stencil-whiteout-outline|\
+            straight-flag|\
             ly:stream-event\\?|\
             ly:string-percent-encode|\
             ly:string-substitute|\
+            style-note-heads|\
+            suggest-convert-ly-message|\
+            symbol<\\?|\
+            symbol-concatenate|\
+            symbol-key<\\?|\
             ly:system-font-load|\
+            tag-group-get|\
+            tags-keep-predicate|\
+            tags-remove-predicate|\
+            teaching-accidental-rule|\
             ly:text-interface::interpret-markup|\
+            ly:time-signature::print|\
             ly:transform\\?|\
             ly:transform->list|\
             ly:translate-cpp-warning-scheme|\
@@ -1718,12 +2024,17 @@ repository:
             ly:translator-group\\?|\
             ly:translator-name|\
             ly:transpose-key-alist|\
-            ly:truncate-list!|\
             ly:ttf->pfa|\
             ly:ttf-ps-name|\
             ly:type1->pfa|\
-            ly:undead\\?|\
+            unbroken-or-first-broken-spanner\\?|\
+            unbroken-or-last-broken-spanner\\?|\
+            unbroken-spanner\\?|\
+            unfold-repeats|\
+            unfold-repeats-fully|\
+            uniq-list|\
             ly:unit|\
+            unity-if-multimeasure|\
             ly:unpure-call|\
             ly:unpure-pure-container\\?|\
             ly:unpure-pure-container-pure-part|\
@@ -1731,32 +2042,57 @@ repository:
             ly:usage|\
             ly:verbose-output\\?|\
             ly:version|\
+            ly:version\\?|\
+            voicify-music|\
+            volta-bracket::calc-hook-visibility|\
+            ly:volta-bracket::calc-shorten-pair|\
+            volta-spec-music|\
             ly:warning|\
             ly:warning-located|\
-            ly:wide-char->utf-8\
+            ly:wide-char->utf-8|\
+            write-me|\
+            ly:add-file-name-alist|\
+            ly:beam-score-count|\
+            ly:box\\?|\
+            ly:context-now|\
+            ly:expand-environment|\
+            ly:get-undead|\
+            ly:gettext|\
+            ly:grob-spanned-rank-interval|\
+            ly:make-undead|\
+            ly:output-formats|\
+            ly:parser-lexer|\
+            ly:protects|\
+            ly:round-filled-polygon|\
+            ly:separation-item::print|\
+            ly:skyline-pair\\?|\
+            ly:slur-score-count|\
+            ly:start-environment|\
+            ly:truncate-list!|\
+            ly:undead\\?\
           )\
         "
         name: entity.name.function.keyword.lilypond-scheme
         content: LilyPond Scheme functions
-      - begin: '#!'
-        end: '!#'
+      - begin: "#!"
+        end: "!#"
         name: comment.block.lilypond-scheme
         content: Guile block comment
       # https://lilypond.org/doc/v2.20/Documentation/extending/lilypond-code-blocks
-      - begin: '#{'
-        end: '#}'
+      - begin: "#{"
+        end: "#}"
         name: meta.lilypond-scheme.lilypond-code-block
         content: LilyPond code block
         patterns:
-          - include: '#notenames'
-          - include: '#internals'
-          - include: '#notemode'
-          - include: '#drummode'
-          - include: '#lyricsmode'
-          - include: '#notemode-explicit'
-          - include: '#markupmode'
-          - include: '#figbassmode'
-          - include: '#embedded-scheme'
+          - include: "#notenames"
+          - include: "#internals"
+          - include: "#notemode"
+          - include: "#drummode"
+          - include: "#lyricsmode"
+          - include: "#notemode-explicit"
+          - include: "#markupmode"
+          - include: "#figbassmode"
+          - include: "#embedded-scheme"
       - include: source.scheme
   figuregroup:
     patterns:
@@ -1772,11 +2108,11 @@ repository:
           "2":
             name: constant.numeric.fbgroupclose.lilypond
         patterns:
-          - include: '#markupmode'
-          - include: '#group'
-          - include: '#figure'
-          - include: '#accidental'
-      - include: '#embedded-scheme'
+          - include: "#markupmode"
+          - include: "#group"
+          - include: "#figure"
+          - include: "#accidental"
+      - include: "#embedded-scheme"
   notedrum:
     patterns:
       - match: <(?!<)|(?<!\\)>(?!>)(\s*(128|64|32|16|8|4|2|1|\\breve|\\longa|\\maxima)(\s*[.]\s*)*((\s*\*\s*\d+(\/\d+)?)+)?)?
